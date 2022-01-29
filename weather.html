@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alata&family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <title>Document</title>
+
+    <style>
+        :root{
+            font-family: 'Alata', sans-serif;
+font-family: 'Balsamiq Sans', cursive;
+        }
+        #search{
+            width: 300px;
+            margin: auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin-top: 30px;
+            margin-bottom: 50px;
+
+        }
+        #input{
+            padding: 7px;
+            border-radius: 10px;
+            border:rgb(33, 45, 112) 2px solid ;
+    
+
+
+        }
+        #btn{
+            border-radius: 10px;
+            border: none;
+            background-color: rgb(38, 37, 88);
+            color: white;
+            cursor: pointer;
+
+
+        }
+        #btn:hover{
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+        }
+
+        #container{
+            width: 95%;
+            margin: auto;
+             display: flex;
+             flex-direction: row;
+             justify-content: space-between;
+             height: 450px;
+             gap: 20px;
+             background-color: rgb(255, 255, 255);
+             border-radius: 20px;
+             background: linear-gradient(90deg, #c75454, #c5594b, #c25f44, #be643c, #b96a36, #b47031, #ad762d, #a67b2b);
+             box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+
+        .left{
+            height: 450px;
+            border:rgba(30, 42, 111,0.6) 2px solid ;
+            flex-basis: 80%;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+
+        }
+        #citytoday{
+            display: flex;
+            height: 30%;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 20px;
+
+        }
+        .t-left{
+            width: 45%;
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            border-radius: 12px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+
+        .iconmain img{
+            height: 70px;
+            border-radius: 50%;
+            box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        }
+        .temp{
+            align-self: center;
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+        }
+        .temp-info{
+            font-size: 40px;
+            display: flex;
+            flex-direction: row;
+        justify-content:center;
+        align-items: flex-start;
+        align-self: center;
+        font-weight: 700;
+        color: wheat;
+        }
+        .more-main-info{
+            display: flex;
+            flex-direction: column;
+            align-content: flex-start;
+            justify-content: center;
+            color: rgb(49, 43, 43);
+
+            
+        }  
+        #desc{
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .more-main-info p{
+            margin: 1px;
+        }
+        .t-right{
+            width: 36%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-content:right;
+            border-radius: 12px;
+            align-items: center;
+            gap: 5px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+        .t-right img {
+            height: 16px;
+            box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        }
+
+        
+        .right{
+            height: 450px;
+            border:rgb(33, 45, 112) 2px solid ;
+            flex-basis: 48%;
+            border-radius: 20px;
+        
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+        .t-right p {
+            margin: 0;
+            color: rgb(33, 33, 92);
+           
+        }
+        .t-right h3 {
+            margin: 4px;
+        }
+        
+        iframe{
+            height: 100%;
+            width: 100%;
+        }
+#feels-like, #humidity, #sunsire, #sunset{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 43px;
+    /* border: 1px solid salmon; */
+    gap: 0px;
+    align-items: center;
+    padding: auto;
+    border-radius: 12px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    padding: 10px;
+  
+}
+
+.icon-f, .icon-h, .icon-rise, .icon-set{
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* border: 1px solid salmon; */
+    margin-top: 2px;
+    margin-right: 6px;
+    margin-left: 8px;
+    border-radius: 50%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.info-like, .info-h, .info-rise, .info-set {
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* .info-like p{
+margin: 0;
+} */
+
+.temp-c{
+font-size: 15px;
+vertical-align: super;
+
+}
+
+
+.city-info{
+    height: 17%;
+    margin-top: 20px;
+    display: flex;
+    gap: 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+
+}
+.city{
+    font-weight: 700;
+    font-size: 50px;
+    margin: 0;
+    color: wheat;
+
+}
+.date{
+    font-weight: 700;
+    font-size: 14px;
+    color: gainsboro;
+    margin: 0;
+}
+     #cityweek{
+         display: flex;
+         flex-direction: row;
+         justify-content: center;
+         align-items: center;
+         height: 50%;
+         gap: 8px;
+         width: 99%;
+         margin: auto;
+     }
+     .day-box{
+         display: flex;
+         flex-direction: column;
+         height: 130px;
+         width: 90px;
+         justify-content: center;
+         border-radius: 12px;
+         align-items: center;
+         background: linear-gradient(90deg, #594f4f, #574849, #554145, #523a41, #4e343d, #4a2d3b, #452739, #402138);
+         box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+         padding: 15px 0px;
+     }
+     .day-box h3 {
+         margin: 0%;
+         margin-bottom: 3px;
+         margin-top: 3px;
+         font-size: 25px;
+     }
+     .day-box p{
+         font-size: 11px;
+         margin-top: 3px;
+      font-weight: 700;
+         margin: 0%;
+         color: wheat;
+     }
+     .day-icon{
+         height: 60px;
+         margin: 0%;
+         border-radius: 50%;
+         border: none;
+         box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+     }
+     .day-box div{
+        margin-top: 3px;
+        font-weight: 800;
+        font-size: 25px;
+        color: wheat;
+
+      
+     }
+     .temp-c-week{
+         vertical-align: super;
+         font-size: 16px;
+     }
+   iframe{
+       overflow: hidden;
+       border-radius: 20px;
+   }
+   body{
+       padding: 0%;
+       margin: 0%;
+       background: linear-gradient(90deg, #ff8469, #ed6c69, #d95669, #c24269, #a83068, #8d2266, #6f1662, #500f5c);
+   }
+    </style>
+</head>
+<body>
+   <form id="search">
+       <input type="text" id="input" placeholder="Enter City">
+       <input type="submit" id="btn" value="Get Weather!">
+    </form>
+   <div id="container">
+       <div class="left">
+           <div class="city-info">
+               <h1 class="city"></h1>
+               <p class="date"></p>
+           </div>
+           <div id="citytoday">
+
+              <div class="t-left">
+                  <div class="temp">
+                      <div class="iconmain"></div>
+                      <div class="temp-info"></div>
+                  </div>
+                  <div class="more-main-info">
+                    <p id="wind"></p>
+                    <p id="pressure"></p>
+                    <p id="desc"></p>
+                  </div>
+              </div>
+
+              <div class="t-right">
+                  <div id="feels-like">
+                  <div class="icon-f"></div>
+                  <div class="info-like"></div>
+                  </div>
+
+                <div id="humidity">
+                    <div class="icon-h"></div>
+                    <div class="info-h"></div>
+                </div>
+                <div id="sunsire">
+                    <div class="icon-rise"></div>
+                    <div class="info-rise"></div>
+                </div>
+                <div id="sunset">
+                    <div class="icon-set"></div>
+                    <div class="info-set"></div>
+                </div>
+              </div>
+
+           </div>
+           <div id="cityweek">
+               
+        </div>
+       </div>
+       <div class="right">
+         <iframe src="" frameborder="0"  width="98%" height="95%" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+       </div>
+   </div> 
+</body>
+</html>
+<script>
+   document.querySelector("form").addEventListener("submit",(eve)=>{
+        eve.preventDefault();
+        getData()
+    });
+let city = "kanpur"
+getData(city)
+    async function getData(city=null) {
+
+//         if(document.querySelector("#container").childNodes.length == 1)
+//  {
+//     city = document.getElementById("input").value;
+//     window.location.reload();
+//     getData(city);
+//  }   
+     try{
+            if(city==null) {
+
+                 city = document.getElementById("input").value;
+            }
+
+
+            document.querySelector("iframe").src=`https://maps.google.com/maps?q=${city}&t=k&z=13&ie=UTF8&iwloc=&output=embed`
+            let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=ddc894a0a38425be12ca6bbf79cb31e5&units=metric`;
+            let res = await fetch(url)
+            let data = await res.json();
+            console.log(data)
+            showMain(data)
+            showInfoData(data)
+            sevenDayData(data.coord.lon,data.coord.lat)
+        }
+   catch(err)
+  {
+      let body = document.getElementById("container");
+      body.innerHTML = "";
+      let img = document.createElement("img");
+      img.src = 'src/404.jpg'
+      img.style.height = "100%"
+      img.style.width = "100%"
+      img.addEventListener("click",()=>{
+        window.location.reload();
+      })
+      body.append(img)
+    
+ }
+}
+
+
+async function sevenDayData(lon,lat) {
+    let res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&appid=ddc894a0a38425be12ca6bbf79cb31e5&units=metric`)
+    let data = await res.json()
+    console.log(data)
+    showWeekData(data.daily)
+}
+
+function showWeekData(data) {
+ let cityweek =  document.getElementById("cityweek");
+ cityweek.innerHTML = "";
+
+ data.forEach((element,index) => {
+     let div = document.createElement("div");
+     div.setAttribute("class","day-box");
+
+     let h3 = document.createElement("h3");
+     h3.innerText = `${getDayOf(index)}`
+
+     let img = document.createElement("img");
+     img.setAttribute("class","day-icon")
+     img.src = `https://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png`
+
+     let clowd = document.createElement("p");
+     clowd.innerText = element.weather[0].description;
+
+     let divc = document.createElement("div");
+     divc.innerHTML = `${element.temp.day}<span class="temp-c-week">&deg;c</span>`
+
+     div.append(h3,img,clowd,divc);
+     cityweek.append(div);
+ });
+}
+
+function getDayOf(index) {
+ let day = new Date()
+ day = (day.getUTCDay()+index)
+    console.log(day)
+
+    if(day==0||day==7) {
+    return "Mon"
+}
+if(day==1||day==8) {
+    return "Tue"
+} 
+if(day==2||day==9) {
+    return "Wed"
+} 
+if(day==3||day==10) {
+    return "Thu"
+} 
+if(day==4||day==11) {
+    return "Fri"
+} 
+if(day == 5||day==12) {
+return "Sat"
+}
+if(day==6||day==13) {
+    return "Sun"
+}
+
+}
+
+
+function showInfoData(data) {
+      
+    let icon_h = document.querySelector(".icon-h");
+    icon_h.innerHTML = ""
+    let img_h = document.createElement("img")
+    img_h.src = "./src/humidity.png"
+    icon_h.append(img_h)
+
+   let info_h = document.querySelector(".info-h");
+   info_h.innerHTML = "";
+
+   let h_p = document.createElement("p");
+   h_p.innerText = "Humidity";
+
+   let h_h3 = document.createElement("h3");
+   h_h3.innerText = `${data.main.humidity}%`;
+
+   info_h.append(h_p,h_h3);
+
+
+   let icon_f = document.querySelector(".icon-f");
+    icon_f.innerHTML = ""
+    let img_f = document.createElement("img")
+    img_f.src = "./src/feels.png"
+    icon_f.append(img_f)
+
+
+  let info_rise = document.querySelector(".info-rise");
+  info_rise.innerHTML ="";
+   let rise_p = document.createElement("p");
+   rise_p.innerText = "Sunrise";
+   let rise_h3 = document.createElement("h3");
+   rise_h3.innerText = `${new Date(data.sys.sunrise*1000).getHours()}:${new Date(data.sys.sunrise*1000).getMinutes()}`
+
+    info_rise.append(rise_p,rise_h3)
+
+
+    let icon_rise = document.querySelector(".icon-rise");
+    icon_rise.innerHTML = ""
+    let img_rise = document.createElement("img")
+    img_rise.src = "./src/rise.png"
+    icon_rise.append(img_rise)
+
+  let info_set = document.querySelector(".info-set");
+  info_set.innerHTML ="";
+   let set_p = document.createElement("p");
+   set_p.innerText = "Sunset";
+   let set_h3 = document.createElement("h3");
+   set_h3.innerText = `${new Date(data.sys.sunset*1000).getHours()}:${new Date(data.sys.sunset*1000).getMinutes()}`
+
+   info_set.append(set_p,set_h3)
+   
+   let icon_set = document.querySelector(".icon-set");
+    icon_set.innerHTML = ""
+    let img_set = document.createElement("img")
+    img_set.src = "./src/set.png"
+    icon_set.append(img_set)
+
+  
+   let info_feels =document.querySelector(".info-like");
+   info_feels.innerHTML = "";
+
+   let like_p = document.createElement("p");
+   like_p.innerText = "Feels-like";
+
+   let like_h3 = document.createElement("h3");
+   like_h3.innerHTML = `${data.main.feels_like}&deg;c`
+
+   info_feels.append(like_p,like_h3)
+     
+
+  
+
+    
+
+}
+
+function showMain(data) {
+
+     let city = document.querySelector(".city");
+     city.innerHTML = "";
+
+     city.innerText = data.name;
+
+     let date = document.querySelector(".date");
+     date.innerText = "";
+     date.innerText = `${getDayoh()} ${new Date().getUTCDate()}/${new Date().getUTCMonth()+1}/${new Date().getFullYear()}`
+
+
+    let iconMain = document.querySelector(".iconmain")
+    iconMain.innerHTML = "";
+    
+    let imgMain = document.createElement("img");
+    // if(data.weather[0].main=="Clouds"){
+    //     imgMain.src = "./src/cloudy.png"
+    // } else {
+    //     imgMain.src = "./src/clear.png"
+    // }
+    imgMain.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+
+    iconMain.append(imgMain)
+    let temp = document.querySelector(".temp-info");
+    temp.innerHTML = ""
+    temp.innerHTML = `${data.main.temp}<span class="temp-c">&deg;c</span>`
+
+    let wind = document.getElementById("wind");
+    wind.innerHTML =""
+    wind.innerText = `Wind: ${data.wind.speed}km/h`
+
+    let pressure = document.getElementById("pressure")
+    pressure.innerHTML = "";
+    pressure.innerText = `Pressure: ${data.main.pressure}mb`
+
+    let desc = document.getElementById("desc");
+    desc.innerText = ""
+
+    desc.innerText = `${data.weather[0].description}`
+}
+
+
+function getDayoh() {
+    let day = new Date().getUTCDay();
+if(day==0) {
+    return "Monday"
+}
+if(day==1) {
+    return "Tuesday"
+} 
+if(day==2) {
+    return "Wednesday"
+} 
+if(day==3) {
+    return "Thursday"
+} 
+if(day==4) {
+    return "Friday"
+} 
+if(day == 5) {
+return "Saturday"
+}
+if(day==6) {
+    return "Sunday"
+}
+
+}
+</script>
+
